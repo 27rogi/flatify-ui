@@ -5,7 +5,7 @@
 This is a public beta of this theme, if you found a bug, glitch or have an idea for theme you can report about it in issues tab.
 
 ## We have a light theme too!
-**You can see it here**: [Flatify Light UI](https://github.com/sdir01/flatify-ui)
+**You can see it here**: [Flatify Light UI](https://github.com/sdir01/flatify-light-ui)
 
 ## Installation
 
