@@ -1,0 +1,135 @@
+
+// Buttons
+// -------------------
+
+// Overrides: atom/atom/static/buttons.less
+
+button {
+    box-shadow: none;
+}
+
+.btn {
+  transition: 0.2s;
+  color: lighten(@button-background-color, 20%);
+  border: 1px solid lighten(@button-background-color, 20%);
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    color: lighten(@button-background-color, 40%);
+    background-color: transparent;
+    border: 1px solid lighten(@button-background-color, 40%);
+  }
+  &:active {
+    color:  @text-color-highlight;
+    background-color: lighten(@button-background-color, 20%);
+    border: 1px solid lighten(@button-background-color, 20%);
+  }
+  &.selected {
+    color: @text-color-highlight;
+    background-color: lighten(@button-background-color, 40%);
+    border: 1px solid lighten(@button-background-color, 40%);
+	 outline: none;
+  }
+  &:focus,
+  &:focus:active {
+    outline: none;
+  }
+}
+
+
+// Colored buttons -----------------------
+
+.btn.btn-primary { .btn-color(@background-color-info); }
+.btn.btn-info    { .btn-color(@background-color-info); }
+.btn.btn-success { .btn-color(@background-color-success); }
+.btn.btn-warning { .btn-color(@background-color-warning); }
+.btn.btn-error   { .btn-color(@background-color-error); }
+
+.btn-color(@bg) {
+  transition: 0.2s;
+  color: lighten(@bg, 10%);
+  border: 1px solid lighten(@bg, 10%);
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    color: lighten(@bg, 30%);
+    background-color: transparent;
+    border: 1px solid lighten(@bg, 30%);
+  }
+  &:active {
+    color:  lighten(@bg, 90%);
+    background-color: lighten(@bg, 10%);
+    border: 1px solid lighten(@bg, 10%);
+  }
+  &.selected {
+    color:  lighten(@bg, 90%);
+    background-color: lighten(@bg, 10%);
+    border: 1px solid lighten(@bg, 10%);
+  }
+  &.selected:focus,
+  &.selected:hover {
+    color:  lighten(@bg, 90%);
+    background-color: lighten(@bg, 25%);
+    border: 1px solid lighten(@bg, 25%);
+  }
+}
+
+// Button Group -----------------------
+
+.btn-group > .btn {
+  color: lighten(@button-background-color, 20%);
+  border: 1px solid lighten(@button-background-color, 20%);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn-group > .btn:last-child, .btn-group > .btn.selected:last-child, .btn-group > .dropdown-toggle, .btn-group > .btn:first-child {
+  border: 1px solid lighten(@button-background-color, 20%);
+}
+
+.btn-group > .btn {
+  box-shadow: none;
+  transition: 0.2s;
+  margin: 0px;
+  color: lighten(@button-background-color, 20%);
+  background-color: transparent;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    color: lighten(@button-background-color, 40%);
+    background-color: transparent;
+    border: 1px solid lighten(@button-background-color, 40%);
+  }
+  &:active {
+    color:  @text-color-highlight;
+    background-color: lighten(@button-background-color, 20%);
+    border: 1px solid lighten(@button-background-color, 20%);
+  }
+  &.selected {
+    color: lighten(@button-background-color, 40%);
+    background-color: transparent;
+    border: 1px solid lighten(@button-background-color, 40%);
+  }
+}
+
+.atom-dock-toggle-button .atom-dock-toggle-button-inner {
+  background-color: darken(@button-background-color, 15%);
+  border: none;
+}
+
+.settings-view .package-card .meta-controls .status-indicator {
+  border: 1px solid @background-color-success;
+  &.is-disabled {
+    border: 1px solid @background-color-warning;
+  }
+}
+
+.active-syntax-settings {
+  height: auto;
+  width: auto;
+  margin-left: 5px;
+}

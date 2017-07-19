@@ -1,0 +1,84 @@
+//
+// Checkbox
+// -------------------------
+
+.input-checkbox {
+  &:active {
+    background-color: @base-background-color;
+  }
+  &:before,
+  &:after {
+    background-color: @base-background-color;
+  }
+  &:checked {
+    background-color: @text-color-highlight;
+  }
+
+  &:indeterminate {
+    background-color: @text-color-highlight;
+  }
+}
+
+.settings-view select.form-control {
+  transition: 0.2s;
+  color: lighten(@button-background-color, 20%);
+  border: 1px solid lighten(@button-background-color, 20%);
+  background-color: transparent;
+  box-shadow: none;
+  font-weight: bold;
+
+  &:hover {
+    color: lighten(@button-background-color, 40%);
+    background-color: transparent;
+    border: 1px solid lighten(@button-background-color, 40%);
+    background-color: transparent;
+  }
+
+  &:focus {
+    color: lighten(@button-background-color, 40%);
+    background-color: transparent;
+    border: 1px solid lighten(@button-background-color, 40%);
+    background-color: transparent;
+  }
+}
+
+//
+// Radio
+// -------------------------
+
+.input-radio {
+  &:before {
+    background-color: @base-background-color;
+  }
+  &:active {
+    background-color: @text-color-highlight;
+  }
+  &:checked {
+    background-color: @text-color-highlight;
+  }
+}
+
+
+//
+// Range (Slider)
+// -------------------------
+
+.input-range {
+  &::-webkit-slider-thumb {
+    background-color: @text-color-highlight;
+  }
+}
+
+
+//
+// Toggle
+// -------------------------
+
+.input-toggle {
+  &:checked {
+    background-color: @text-color-highlight;
+  }
+  &:before {
+    background-color: @base-background-color;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "flatify-ui",
+  "theme": "ui",
+  "version": "0.0.0",
+  "description": "Flatify is minimalistic, flat and inspiring interface theme for Atom.",
+  "keywords": [
+    "ui",
+    "theme",
+    "flat",
+    "minimalistic",
+    "minimal",
+    "flatify",
+    "inspiring",
+    "atom",
+    "package",
+    "interface theme"
+  ],
+  "repository": "https://github.com/sdir01/flatify-ui",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

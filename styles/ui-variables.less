@@ -1,0 +1,134 @@
+
+//      ________      __  _ ____         __  ______   _    __           _       __    __
+//     / ____/ /___ _/ /_(_) __/_  __   / / / /  _/  | |  / /___ ______(_)___ _/ /_  / /__  _____
+//    / /_  / / __ `/ __/ / /_/ / / /  / / / // /    | | / / __ `/ ___/ / __ `/ __ \/ / _ \/ ___/
+//   / __/ / / /_/ / /_/ / __/ /_/ /  / /_/ // /     | |/ / /_/ / /  / / /_/ / /_/ / /  __(__  )
+//  /_/   /_/\__,_/\__/_/_/  \__, /   \____/___/     |___/\__,_/_/  /_/\__,_/_.___/_/\___/____/
+//                          /____/
+
+@import "syntax-variables";
+
+@ui-syntax-color: @syntax-background-color;
+
+//      __    _       __    __     ________                           ________              __
+//     / /   (_)___ _/ /_  / /_   /_  __/ /_  ___  ____ ___  ___     / ____/ /_  ___  _____/ /_____  _____
+//    / /   / / __ `/ __ \/ __/    / / / __ \/ _ \/ __ `__ \/ _ \   / /   / __ \/ _ \/ ___/ //_/ _ \/ ___/
+//   / /___/ / /_/ / / / / /_     / / / / / /  __/ / / / / /  __/  / /___/ / / /  __/ /__/ ,< /  __/ /
+//  /_____/_/\__, /_/ /_/\__/    /_/ /_/ /_/\___/_/ /_/ /_/\___/   \____/_/ /_/\___/\___/_/|_|\___/_/
+//          /____/
+
+@ui-s-h: hue(@ui-syntax-color);
+@ui-s-s: saturation(@ui-syntax-color);
+@ui-s-l: lightness(@ui-syntax-color);
+@ui-inv: 10%; // inverse lightness if below
+
+.ui-hue() when (@ui-s-s = 0) { @ui-hue: 220; } // Use blue hue when no saturation
+.ui-hue() when (@ui-s-s > 0) { @ui-hue: @ui-s-h; }
+.ui-hue();
+
+.ui-saturation() when (@ui-s-h <=  80) { @ui-saturation: min(@ui-s-s,  5%); } // minimize saturation for brown
+.ui-saturation() when (@ui-s-h >   80) and (@ui-s-h <  160) { @ui-saturation: min(@ui-s-s, 12%); } // reduce saturation for green
+.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l <  @ui-inv) { @ui-saturation: min(@ui-s-s, 48%); } // limit max saturation for very dark backgrounds
+.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l >= @ui-inv) { @ui-saturation: @ui-s-s; }
+.ui-saturation();
+
+.ui-lightness() when (@ui-s-l <  @ui-inv) {
+  @ui-lightness: @ui-s-l + 8%; // increase lightness when too dark
+  @ui-lightness-border: @ui-lightness*.3;
+}
+.ui-lightness() when (@ui-s-l >= @ui-inv) {
+  @ui-lightness: min(@ui-s-l, 20%); // limit max lightness (for light syntax themes)
+  @ui-lightness-border: @ui-lightness*1.2;
+}
+.ui-lightness();
+
+@ui-bg:     hsl(@ui-hue, @ui-saturation, @ui-lightness); // normalized @syntax-background-color
+
+//     __  ______   ______      __
+//    / / / /  _/  / ____/___  / /___  __________
+//   / / / // /   / /   / __ \/ / __ \/ ___/ ___/
+//  / /_/ // /   / /___/ /_/ / / /_/ / /  (__  )
+//  \____/___/   \____/\____/_/\____/_/  /____/
+//
+
+// TODO: Optimize the code.
+
+@text-color: lighten(@base-background-color, 50%);
+@text-color-subtle:    lighten(@base-background-color, 45%);
+@text-color-highlight: lighten(@base-background-color, 60%);
+@text-color-selected:  lighten(@base-background-color, 80%);
+
+@text-color-info:    hsl(209, 78%, 46% +  lightness(@ui-bg) / 3.5);
+@text-color-success: hsl(122, 40%, 44% +  lightness(@ui-bg) / 3.5);
+@text-color-warning: hsl(33, 100%, 49% +  lightness(@ui-bg) / 3.5);
+@text-color-error:   hsl(0, 73%, 41% +  lightness(@ui-bg) / 3.5);
+
+// Background colors
+@background-color-info:    hsl(209, 78%, 46%  +  lightness(@ui-bg) / 3.5);
+@background-color-success: hsl(122, 40%, 44%  +  lightness(@ui-bg) / 3.5);
+@background-color-warning: hsl(33, 100%, 49%  +  lightness(@ui-bg) / 3.5);
+@background-color-error:   hsl(0, 73%, 41%  +  lightness(@ui-bg) / 3.5);
+
+@background-color-highlight: lighten(@base-background-color, 5%);
+@background-color-selected:  lighten(@base-background-color, 10%);
+@app-background-color:       darken(@base-background-color, 5%);
+
+// Base colors
+@base-background-color: @ui-bg;
+@base-border-color:     darken(@base-background-color, 8%);
+
+// Component colors
+@pane-item-background-color: @base-background-color;
+@pane-item-border-color:     @base-border-color;
+
+@input-background-color: @app-background-color;
+@input-border-color:     @base-border-color;
+
+@tool-panel-background-color: @base-background-color;
+@tool-panel-border-color:     @base-border-color;
+
+@inset-panel-background-color: lighten(@base-background-color, 4%);
+@inset-panel-border-color:     @base-border-color;
+
+@panel-heading-background-color: lighten(@base-background-color, 4%);
+@panel-heading-border-color:     @base-border-color;
+
+@overlay-background-color: lighten(@base-background-color, 5%);
+@overlay-border-color:     @base-border-color;
+
+@button-background-color:          lighten(@base-background-color, 10%);
+@button-background-color-hover:    lighten(@button-background-color, 12%);
+@button-background-color-selected: @button-background-color-hover;
+@button-border-color:              @base-border-color;
+
+@tab-bar-background-color:    @base-background-color;
+@tab-bar-border-color:        @base-border-color;
+@tab-background-color:        @tab-bar-background-color;
+@tab-background-color-active: lighten(@tab-bar-background-color, 10%);
+@tab-border-color:            @base-border-color;
+
+@tree-view-background-color: @base-background-color;
+@tree-view-border-color:     @base-border-color;
+
+// Site colors
+@ui-site-color-1: hsl(208, 100%, 50%); // blue
+@ui-site-color-2: hsl(160,  70%, 42%); // green
+@ui-site-color-3: hsl(32,   60%, 50%); // orange
+@ui-site-color-4: #D831B0;             // pink
+@ui-site-color-5: #EBDD5B;             // yellow
+
+// Sizes
+@font-size: 12px;
+@input-font-size: 14px;
+
+@disclosure-arrow-size: 12px;
+
+@component-padding: 10px;
+@component-icon-padding: 5px;
+@component-icon-size: 16px;
+@component-line-height: 25px;
+
+@tab-height: 50px;
+
+// Misc
+@component-border-radius: 2px;

@@ -1,0 +1,19 @@
+.highlight-color (@color) {
+	transition: 0.2s;
+	color: lighten(@color, 10%);
+	border: 1px solid lighten(@color, 10%);
+	background-color: transparent;
+	box-shadow: none;
+	font-weight: bold;
+	&:hover {
+		color: lighten(@color, 70%);
+		border: 1px solid lighten(@color, 10%);
+		background-color: lighten(@color, 10%);
+	}
+}
+
+span.highlight { .highlight-color(lighten(@background-color-selected, 10%)); }
+.highlight-error { .highlight-color(@background-color-error); }
+.highlight-info { .highlight-color(@background-color-info); }
+.highlight-success { .highlight-color(@background-color-success); }
+.highlight-warning { .highlight-color(@background-color-warning); }

@@ -1,0 +1,52 @@
+
+// Tooltips
+// -------------------
+
+// Overrides: Bootstrap's `.tooltip`.
+
+
+.tooltip {
+  .tooltip-inner {
+    line-height: 1;
+    padding: .75em;
+    white-space: nowrap;
+    max-width: none;
+    background: @base-background-color;
+    font-weight: bold;
+    color: lighten(@button-background-color, 40%);
+    border: 1px solid lighten(@button-background-color, 40%);
+  }
+
+  &.top .tooltip-arrow {
+  border-top-color: lighten(@button-background-color, 40%);
+}
+&.top-left .tooltip-arrow {
+  border-top-color: lighten(@button-background-color, 40%);
+}
+&.top-right .tooltip-arrow {
+  border-top-color: lighten(@button-background-color, 40%);
+}
+&.right .tooltip-arrow {
+  border-right-color: lighten(@button-background-color, 40%);
+}
+&.left .tooltip-arrow {
+  border-left-color: lighten(@button-background-color, 40%);
+}
+&.bottom .tooltip-arrow {
+  border-bottom-color: lighten(@button-background-color, 40%);
+}
+&.bottom-left .tooltip-arrow {
+  border-bottom-color: lighten(@button-background-color, 40%);
+}
+&.bottom-right .tooltip-arrow {
+  border-bottom-color: lighten(@button-background-color, 40%);
+}
+
+  .keystroke {
+    padding: .15em .4em;
+    margin: 0 -.3em 0 .25em;
+    border-radius: max(2px, @component-border-radius / 2);
+    color: lighten(@button-background-color, 40%);
+    background: @base-background-color;
+  }
+}

@@ -1,0 +1,28 @@
+
+//   __   __    ___   ___   _     _     ___    __    ___
+//  ( (` / /`  | |_) / / \ | |   | |   | |_)  / /\  | |_)
+//  _)_) \_\_, |_| \ \_\_/ |_|__ |_|__ |_|_) /_/--\ |_| \ 
+
+.scrollbars-visible-always {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-corner,
+    ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.10);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 2px;
+        border: 1px solid lighten(@base-background-color, 15%);
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        border-radius: 2px;
+        border: 1px solid lighten(@base-background-color, 15%);
+        background: lighten(@base-background-color, 15%);
+    }
+}
