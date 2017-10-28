@@ -5,31 +5,87 @@
 // Displays selectable tabs above the editor.
 // Overrides: atom/tabs
 
-.atom-dock-resize-handle.atom-dock-resize-handle-resizable.left, .atom-dock-resize-handle.atom-dock-resize-handle-resizable.right {
-  width: 2px;
+.tree-view-resizer {
+    .tree-view-resize-handle {
+        width: 8px;
+    }
+}
+
+.atom-dock {
+    &-inner {
+        position: relative;
+
+        &.bottom {
+            .tab-bar:empty {
+                display: none;
+            }
+        }
+    }
+
+    &-resize-handle {
+        position: absolute;
+        z-index: 10;
+
+        &.left, &.right {
+            top: 0;
+            bottom: 0;
+        }
+
+        &.left {
+            right: 0;
+        }
+
+        &.right {
+            left: 0;
+        }
+
+        &.top, &.bottom {
+            left: 0;
+            right: 0;
+        }
+
+        &.top {
+            bottom: 0;
+        }
+
+        &.bottom {
+            top: 0;
+        }
+    }
+
 }
 
 .tab-bar {
   background-color: @background-color-highlight;
-	  .tab[data-type='TextEditor'] {
+  .tab {
      &.active {
+       transition: 100ms ease-in-out;
        color: @text-color-selected;
        background-color: @tab-background-color-active;
-    	}
-  	}
+       border-bottom: 3px solid lighten(@tab-background-color-active, 5%);
+      }
+    }
 	.tab[data-type='TreeView'] {
-	    width: 100%;
-	    max-width: 100%;
-	    text-align: center;
-	    padding-right: 10px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding-right: 10px;
+    border-bottom: none;
 	}
+  &.inset-panel {
+    border-radius: 0px;
+  }
   .tab {
     color: @text-color;
     font-weight: bold;
     height: @tab-height;
     line-height: @tab-height;
     font-size: @font-size;
+    text-align: center;
 
+    &.tab.active .title {
+      padding-right: 0px;
+    }
 
     // Modified Icon -------------------
 		&.modified {

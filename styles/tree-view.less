@@ -15,13 +15,11 @@
   background-color: @tree-view-background-color;
 
   .list-item {
-	transition: 0.1s;
-   &:hover {
-     color: @text-color-highlight;
+	transition: 100ms ease-in-out;
+   &:hover:not(.selected) {
+     padding: 3px;
+     background: @background-color-highlight;
    }
-	&.selected {
-    color: @text-color-selected;
-  }
 }
 
 }

@@ -8,8 +8,13 @@ button {
     box-shadow: none;
 }
 
-.btn {
-  transition: 0.2s;
+.btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 1px;
+  border-top-left-radius: 1px;
+}
+
+.btn, .btn-group > .btn {
+  transition: 200ms ease-in-out;
   color: lighten(@button-background-color, 20%);
   border: 1px solid lighten(@button-background-color, 20%);
   background-color: transparent;
@@ -18,7 +23,7 @@ button {
   &:hover,
   &:focus {
     color: lighten(@button-background-color, 40%);
-    background-color: transparent;
+    background-color: lighten(@button-background-color, 10%);
     border: 1px solid lighten(@button-background-color, 40%);
   }
   &:active {
@@ -48,7 +53,7 @@ button {
 .btn.btn-error   { .btn-color(@background-color-error); }
 
 .btn-color(@bg) {
-  transition: 0.2s;
+  transition: 200ms ease-in-out;
   color: lighten(@bg, 10%);
   border: 1px solid lighten(@bg, 10%);
   background-color: transparent;
@@ -56,25 +61,25 @@ button {
   font-weight: bold;
   &:hover,
   &:focus {
-    color: lighten(@bg, 30%);
-    background-color: transparent;
-    border: 1px solid lighten(@bg, 30%);
+    color:  lighten(@bg, 20%);
+    background-color: fade(lighten(@bg, 20%), 20%);
+    border: 1px solid lighten(@bg, 20%);
   }
   &:active {
-    color:  lighten(@bg, 90%);
+    color:  lighten(@bg, 100%);
     background-color: lighten(@bg, 10%);
     border: 1px solid lighten(@bg, 10%);
   }
   &.selected {
-    color:  lighten(@bg, 90%);
-    background-color: lighten(@bg, 10%);
-    border: 1px solid lighten(@bg, 10%);
+    color:  lighten(@bg, 5%);
+    background-color: fade(lighten(@bg, 5%), 10%);
+    border: 1px solid lighten(@bg, 5%);
   }
   &.selected:focus,
   &.selected:hover {
-    color:  lighten(@bg, 90%);
-    background-color: lighten(@bg, 25%);
-    border: 1px solid lighten(@bg, 25%);
+    color:  lighten(@bg, 100%);
+    background-color: lighten(@bg, 5%);
+    border: 1px solid lighten(@bg, 5%);
   }
 }
 
@@ -93,7 +98,7 @@ button {
 
 .btn-group > .btn {
   box-shadow: none;
-  transition: 0.2s;
+  transition: 200ms ease-in-out;
   margin: 0px;
   color: lighten(@button-background-color, 20%);
   background-color: transparent;
@@ -101,7 +106,7 @@ button {
   &:hover,
   &:focus {
     color: lighten(@button-background-color, 40%);
-    background-color: transparent;
+    background-color: lighten(@button-background-color, 10%);
     border: 1px solid lighten(@button-background-color, 40%);
   }
   &:active {

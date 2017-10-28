@@ -1,8 +1,8 @@
 .alert-color(@color) {
 	transition: 0.2s;
-	color: lighten(@color, 20%);
-	border: 1px solid lighten(@color, 20%);
-	background-color: @base-background-color;
+	color: lighten(@color, 50%);
+	border: 1px solid lighten(@color, 50%);
+	background: lighten(@color, 10%);
 	box-shadow: none;
 }
 
@@ -11,5 +11,5 @@
 .alert-warning{.alert-color(@background-color-info);}
 .alert-success{.alert-color(@background-color-success);}
 .alert-danger{.alert-color(@background-color-error);}
-.settings-view .alert-info{.alert-color(@background-color-highlight); background-color: transparent; }
-.settings-view .alert-danger{.alert-color(@background-color-error); background-color: transparent; }
+.settings-view .alert-info{.alert-color(@background-color-highlight); }
+.settings-view .alert-danger{.alert-color(@background-color-error); }
